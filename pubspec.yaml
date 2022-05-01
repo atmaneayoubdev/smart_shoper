@@ -1,0 +1,33 @@
+name: smart_shoper
+description: A new Flutter project.
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.2 <3.0.0"
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  easy_localization: ^3.0.0
+  flutter_lints: ^1.0.0
+  flutter_screenutil: ^5.4.0+1
+  flutter_svg: ^1.0.3
+  flutter_test:
+    sdk: flutter
+  google_fonts: ^2.3.2
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/images/
+    - assets/icons/
+    - assets/translations/
+ 
