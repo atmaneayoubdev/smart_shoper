@@ -1,10 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:smart_shoper/OnBoarding/views/introduction_view.dart';
+import 'package:smart_shoper/constants.dart';
 import 'package:smart_shoper/lalding_view.dart';
 import 'package:smart_shoper/splash_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:easy_localization/easy_localization.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'translations/codegen_loader.g.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+
+  runApp(
+    // DevicePreview(
+    //   enabled: !kReleaseMode,
+    //   builder: (context) =>
+    EasyLocalization(
+      path: 'assets/translations/',
+      supportedLocales: const [
+        Locale('ar'),
+        Locale('en'),
+      ],
+      startLocale: const Locale('ar'),
+      assetLoader: const CodegenLoader(),
+      fallbackLocale: const Locale('ar'),
+      // child: DevicePreview(
+      //   enabled: true,
+      //   builder: (context) => const MyApp(), // Wrap your app
+      // ),
+      child: const MyApp(),
+    ), // Wrap your app
+    //),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,17 +40,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'smart shoper',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ScreenUtilInit(
+      designSize: const Size(428, 926),
+      builder: (BuildContext context) => MaterialApp(
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        debugShowCheckedModeBanner: false,
+        title: 'Smart shoper',
+        theme: ThemeData(
+            splashColor: kgreenColor,
+            colorScheme:
+                ColorScheme.fromSwatch(primarySwatch: Colors.lightGreen)
+                    .copyWith(
+              secondary: Colors.white,
+            )),
+        home: const SplashScreen(),
+        routes: {
+          Landingview.routeName: ((context) => const Landingview()),
+          IntroductionView.routeName: ((context) => const IntroductionView())
+        },
       ),
-      home: const SplashView(),
-      routes: {
-        Landingview.routeName: ((context) => const Landingview()),
-        IntroductionView.routeName: ((context) => const IntroductionView())
-      },
     );
   }
 }

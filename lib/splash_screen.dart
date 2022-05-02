@@ -1,19 +1,21 @@
 import 'dart:async';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_shoper/constants.dart';
-import 'OnBoarding/views/introduction_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+// ignore: unused_import
+import 'package:flutter_svg/flutter_svg.dart';
 
-class SplashView extends StatefulWidget {
-  const SplashView({Key? key}) : super(key: key);
+import 'OnBoarding/views/introduction_view.dart';
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  State<SplashView> createState() => _SplashViewState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashViewState extends State<SplashView> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Timer(const Duration(seconds: 3), () {
@@ -34,8 +36,8 @@ class _SplashViewState extends State<SplashView> {
         ),
         child: Center(
           child: SizedBox(
-            height: 96.h,
-            child: Image.asset("assets/icons/splash_icon.png"),
+            height: 150.h,
+            child: SvgPicture.asset("assets/icons/splash_icon.svg"),
           ),
         ),
       ),
