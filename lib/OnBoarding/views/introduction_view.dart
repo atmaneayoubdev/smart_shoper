@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:smart_shoper/Authentication/views/auth_view.dart';
 import 'package:smart_shoper/constants.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
-
-import '../../lalding_view.dart';
-import '../widgets/slider_model.dart';
+import '../../Common/gradiant_button.dart';
+import '../components/slider_model.dart';
 
 class IntroductionView extends StatefulWidget {
   const IntroductionView({Key? key}) : super(key: key);
@@ -227,31 +227,17 @@ class _IntroductionViewState extends State<IntroductionView> {
                 ),
                 slideIndex == 2
                     ? Center(
-                        child: Container(
-                          width: 320.w,
-                          height: 50.h,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(
-                              30.r,
-                            ),
-                            gradient: kHorizontalrGradiant,
-                          ),
-                          child: TextButton(
-                            onPressed: () {
+                        child: GestureDetector(
+                            onTap: (() {
                               Navigator.pushReplacementNamed(
-                                  context, Landingview.routeName);
-                            },
-                            //splashColor: Colors.blue[50],
-                            child: Text(
-                              "ابدا الان",
-                              style: GoogleFonts.tajawal(
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
+                                context,
+                                AuthView.routeName,
+                              );
+                            }),
+                            child: SizedBox(
+                                width: 320.w,
+                                child:
+                                    const GradiantButton(text: "ابدا الان"))),
                       )
                     : const SizedBox(),
               ],

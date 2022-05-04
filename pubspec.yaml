@@ -18,6 +18,8 @@ dev_dependencies:
   flutter_screenutil: ^5.4.0+1
   flutter_svg: ^1.0.3
   flutter_custom_clippers: ^2.0.0
+  pin_code_fields: ^7.4.0
+  stop_watch_timer: ^1.4.0
   flutter_test:
     sdk: flutter
   google_fonts: ^2.3.2
