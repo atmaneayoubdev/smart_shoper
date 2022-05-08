@@ -3,9 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_shoper/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-// ignore: unused_import
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'OnBoarding/views/introduction_view.dart';
 
 class SplashScreen extends StatefulWidget {

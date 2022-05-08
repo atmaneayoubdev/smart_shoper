@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:smart_shoper/Authentication/views/auth_view.dart';
 import 'package:smart_shoper/constants.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
-import '../../Common/gradiant_button.dart';
+import '../../../Common/gradiant_button.dart';
+import '../../Authentication/views/auth_view.dart';
 import '../components/slider_model.dart';
 
 class IntroductionView extends StatefulWidget {

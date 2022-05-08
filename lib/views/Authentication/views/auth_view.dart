@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:smart_shoper/Authentication/views/phone_verification_view.dart';
 import 'package:smart_shoper/Common/gradiant_button.dart';
 import 'package:smart_shoper/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:smart_shoper/views/Authentication/views/phone_verification_view.dart';
+import 'package:smart_shoper/views/Authentication/views/user_info.dart';
 
 class AuthView extends StatefulWidget {
   const AuthView({Key? key}) : super(key: key);
@@ -180,12 +181,20 @@ class _AuthViewState extends State<AuthView> {
                         height: isSignIn ? 60.h : 40.h,
                       ),
                       GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(
-                                context, PhoneVerificationView.routeName);
-                          },
-                          child: GradiantButton(
-                              text: isSignIn ? "دخول" : "تسجيل")),
+                        onTap: () {
+                          isSignIn
+                              ? Navigator.pushNamed(
+                                  context,
+                                  UserInfo.routeName,
+                                )
+                              : Navigator.pushNamed(
+                                  context,
+                                  PhoneVerificationView.routeName,
+                                );
+                        },
+                        child:
+                            GradiantButton(text: isSignIn ? "دخول" : "تسجيل"),
+                      ),
                       SizedBox(
                         height: isSignIn ? 34.h : 44.h,
                       ),
